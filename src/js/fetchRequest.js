@@ -1,3 +1,4 @@
+import {getModalError} from './modalError';
 
 
 const fetchRequest = async (postfix, {
@@ -25,6 +26,7 @@ const fetchRequest = async (postfix, {
 
     throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
   } catch (err) {
+    // getModalError();
     return callback(err);
   }
 };

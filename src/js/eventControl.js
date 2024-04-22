@@ -1,13 +1,13 @@
 
-import {completeCategory} from './createModule.js';
-import {renderGoods} from './render.js';
-import {getTotalSum} from './calculationsModule.js';
-import './imageModal.js';
-import {toBase64} from './imageModal.js';
-import fetchRequest from './fetchRequest.js';
-import {getModalError} from './modalError.js';
-import {deleteList} from './simpleModule.js';
-import getModalDelete from './modalDelete.js';
+import {completeCategory} from './createModule';
+import {renderGoods} from './render';
+import {getTotalSum} from './calculationsModule';
+import './imageModal';
+import {toBase64} from './imageModal';
+import fetchRequest from './fetchRequest';
+import {getModalError} from './modalError';
+import {deleteList} from './simpleModule';
+import getModalDelete from './modalDelete';
 
 const modalTitle = document.querySelector('.modal__title');
 const inputName = document.querySelector('#name');

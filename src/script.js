@@ -1,14 +1,15 @@
 
-import {renderGoods} from './js/render.js';
-import eventControl from './js/eventControl.js';
-import {getTotalSum} from './js/calculationsModule.js';
-import {createImageModal, completeCategory} from './js/createModule.js';
-import fetchRequest from './js/fetchRequest.js';
-import './js/imageModal.js';
-import {toggleLoader} from './js/loading.js';
-import {searchInputGoods} from './js/search.js';
-import {deleteList} from './js/simpleModule.js';
+import {renderGoods} from './js/render';
+import eventControl from './js/eventControl';
+import {getTotalSum} from './js/calculationsModule';
+import {createImageModal, completeCategory} from './js/createModule';
+import fetchRequest from './js/fetchRequest';
+import './js/imageModal';
+import {toggleLoader} from './js/loading';
+import {searchInputGoods} from './js/search';
+import {deleteList} from './js/simpleModule';
 
+import './css/index.css';
 
 const {
   modalControl,
@@ -49,7 +50,7 @@ const {
       callback: completeCategory,
     });
 
-    // console.log(data);
+    console.log(data);
 
     validateForm(modalInputs, price, countInput, modalInputDiscount);
 
@@ -63,7 +64,7 @@ const {
     createImageModal();
 
     searchInputGoods();
-    getTotalSum(data, cmsTotalPrice);
+    getTotalSum(cmsTotalPrice);
   };
 
   window.goodsInit = init;

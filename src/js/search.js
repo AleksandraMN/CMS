@@ -1,7 +1,7 @@
 
-import fetchRequest from './fetchRequest.js';
-import {renderGoods} from './render.js';
-import {deleteList} from './simpleModule.js';
+import fetchRequest from './fetchRequest';
+import {renderGoods} from './render';
+import {deleteList} from './simpleModule';
 
 const tableBody = document.querySelector('.table__body');
 const panelInput = document.querySelector('.panel__input');

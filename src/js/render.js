@@ -1,5 +1,5 @@
 
-import createRow from './createModule.js';
+import createRow from './createModule';
 
 
 export const renderGoods = (err, data) => {
@@ -7,10 +7,10 @@ export const renderGoods = (err, data) => {
     console.warn(err, data);
     return;
   }
-
+  const {goods} = data;
   const tableBody = document.querySelector('.table__body');
 
-  const tableList = data.goods.map(createRow);
+  const tableList = goods.map(createRow);
   tableBody.append(...tableList);
   return {
     tableBody,

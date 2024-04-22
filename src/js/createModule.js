@@ -1,4 +1,4 @@
-import {loaderHTML} from './loading.js';
+import {loaderHTML} from './loading';
 
 const datalistCategory = document.querySelector('#category-list');
 

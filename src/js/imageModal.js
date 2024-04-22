@@ -1,4 +1,4 @@
-import {createImageModal} from './createModule.js';
+import {createImageModal} from './createModule';
 
 const modalFieldset = document.querySelector('.modal__fieldset');
 const wrapperEl = createImageModal();
