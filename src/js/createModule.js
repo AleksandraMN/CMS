@@ -20,6 +20,7 @@ export const completeCategory = (err, arr) => {
 
 const createRow = (obj) => {
   const trEl = document.createElement('tr');
+  trEl.setAttribute('id', obj.id);
   const td1 = document.createElement('td');
   td1.className = 'table__cell';
   td1.textContent = obj.id;

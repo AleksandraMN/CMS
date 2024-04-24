@@ -1,13 +1,14 @@
 
-import {completeCategory} from './createModule';
-import {renderGoods} from './render';
+// import {completeCategory} from './createModule';
+// import {renderGoods} from './render';
 import {getTotalSum} from './calculationsModule';
 import './imageModal';
 import {toBase64} from './imageModal';
 import fetchRequest from './fetchRequest';
 import {getModalError} from './modalError';
-import {deleteList} from './simpleModule';
+// import {deleteList} from './simpleModule';
 import getModalDelete from './modalDelete';
+import createRow from './createModule';
 
 const modalTitle = document.querySelector('.modal__title');
 const inputName = document.querySelector('#name');
@@ -121,6 +122,7 @@ const goodsModal = async (tableBody, data, cmsTotalPrice, count, openModal) => {
                     console.warn(err, obj);
                     return;
                   }
+                  // document.querySelector("tr[id='" + obj.id + "']").remove();
                   target.closest('tr').remove();
                 },
                 headers: {
@@ -128,15 +130,6 @@ const goodsModal = async (tableBody, data, cmsTotalPrice, count, openModal) => {
                 },
               });
 
-              deleteList(tableBody);
-              const {
-                data,
-              } = fetchRequest('goods', {
-                callback: renderGoods,
-              });
-              fetchRequest('categories', {
-                callback: completeCategory,
-              });
               getTotalSum(data, cmsTotalPrice); // пересчет итог. суммы вверху
             }
           });
@@ -162,6 +155,7 @@ const formControl =
   modalForm.addEventListener('submit', async e => {
     e.preventDefault();
     let img;
+    console.log(e);
 
     const formData = new FormData(e.target);
     const newGood = Object.fromEntries(formData);
@@ -197,26 +191,23 @@ const formControl =
           getModalError();
           const modalPEl = document.querySelector('.modal-p');
           modalPEl.textContent = err;
-
           console.warn(err, obj);
           return;
         }
+        // console.log(obj);
         closeModal();
+        if (document.querySelector("tr[id='" + obj.id + "']")) {
+          document.querySelector("tr[id='" + obj.id + "']").remove();
+          tableBody.append(createRow(obj));
+        } else {
+          tableBody.append(createRow(obj));
+        }
       },
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     });
 
-    deleteList(tableBody);
-    const {
-      data,
-    } = await fetchRequest('goods', {
-      callback: renderGoods,
-    });
-    await fetchRequest('categories', {
-      callback: completeCategory,
-    });
     getTotalSum(data, cmsTotalPrice); // пересчет итог. суммы вверху
   });
 
