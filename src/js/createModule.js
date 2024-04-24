@@ -1,4 +1,5 @@
 import {loaderHTML} from './loading';
+import imageC from '../img/ic.svg';
 
 const datalistCategory = document.querySelector('#category-list');
 
@@ -107,7 +108,8 @@ export const createImageModal = () => {
   img.classList.add('items__img_hover');
   img.style.maxWidth = '40px';
   img.style.maxHeight = '40px';
-  img.setAttribute('src', './src/img/ic.svg');
+  img.setAttribute('src', '');
+  img.src = imageC;
 
   const image = document.createElement('img');
   image.classList.add('preview', 'items__img');

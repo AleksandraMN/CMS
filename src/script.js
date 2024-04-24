@@ -50,7 +50,7 @@ const {
       callback: completeCategory,
     });
 
-    console.log(data);
+    // console.log(data);
 
     validateForm(modalInputs, price, countInput, modalInputDiscount);
 

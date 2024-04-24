@@ -75,7 +75,7 @@ const modalControl =
 const goodsModal = async (tableBody, data, cmsTotalPrice, count, openModal) => {
   tableBody.addEventListener('click', async e => {
     const target = e.target;
-    console.log(target);
+    // console.log(target);
 
     el =
       Number(target.parentElement.parentElement.childNodes[1].dataset.id);
@@ -155,7 +155,7 @@ const formControl =
   modalForm.addEventListener('submit', async e => {
     e.preventDefault();
     let img;
-    console.log(e);
+    // console.log(e);
 
     const formData = new FormData(e.target);
     const newGood = Object.fromEntries(formData);
@@ -242,7 +242,7 @@ const openImageModal = (tableBody) => {
       const h = 600;
 
       // на первом экране по центру
-      console.log(target.dataset.pic);
+      // console.log(target.dataset.pic);
       const height = Math.min(h, screen.availHeight);
       const width = Math.min(w, screen.availWidth);
       const left = (screen.width - width) / 2;
